@@ -119,12 +119,11 @@ Html {
             Footer {
                 _class: "wrapper"
                 H3 {
-                    Text { text: 'Copyright &copy; 2012 - %1 '.arg(Qt.formatDate(new Date(), 'yyyy')) }
+                    Text { text: '&copy; 2012 - %1 '.arg(Qt.formatDate(new Date(), 'yyyy')) }
                     A {
                         href: 'mailto: stasuku+blog@gmail.com'
                         text: 'Tasuku Suzuki'
                     }
-                    Text { text: '. All rights reserved.' }
                 }
             }
         }
