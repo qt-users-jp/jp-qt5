@@ -397,7 +397,42 @@ Theme {
                     Text { text: qsTr('RSS') }
                 }
             }
+        },
+
+        Ul {
+            Li {
+                A {
+                    href: "http://workshop.qt-users.jp/"
+                    text: 'Qt 勉強会'
+                    target: '_blank'
+                }
+
+                Ul {
+                    Li {
+                        A {
+                            href: "http://www.zusaar.com/event/504003"
+                            text: '02-16 関東Qt勉強会 #12 #qtjp'
+                            target: '_blank'
+                        }
+                    }
+                    Li {
+                        A {
+                            href: "http://www.zusaar.com/event/491003"
+                            text: '01-26 名古屋Qt勉強会#7 1/26'
+                            target: '_blank'
+                        }
+                    }
+                    Li {
+                        A {
+                            href: "http://www.zusaar.com/event/482005"
+                            text: '01-19 関東Qt勉強会 #11'
+                            target: '_blank'
+                        }
+                    }
+                }
+            }
         }
+
     ]
 
     function escapeHTML(str) {
