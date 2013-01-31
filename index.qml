@@ -281,7 +281,8 @@ Theme {
         }
 
         function show(html, no) {
-            html = html.replace(/plugin/g, '\v')
+            html = html.replace(/<plugin/g, '<\v')
+            html = html.replace(/<\/plugin/g, '</\v')
             while (html.match(/<\v type=\"([^"]+)\" argument=\"([^"]+)\">([^\v]*?)<\/\v>/)) {
                 html = html.replace(/<\v type=\"([^"]+)\" argument=\"([^"]+)\">([^\v]*?)<\/\v>/gm, function(str, plugin, argument, innerText) {
                     var ret = str
