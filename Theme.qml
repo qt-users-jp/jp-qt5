@@ -76,21 +76,21 @@ Html {
                         Li {
                             A {
                                 href: "http://qt-project.org/downloads"
-                                text: "ダウンロード"
+                                text: "Download"
                                 target: '_blank'
                             }
                         }
                         Li {
                             A {
                                 href: "https://bugreports.qt-project.org/"
-                                text: "バグを報告"
+                                text: "Bug report"
                                 target: '_blank'
                             }
                         }
                         Li {
                             A {
                                 href: "http://qt-project.org/wiki/Gerrit-Introduction"
-                                text: "バグの修正"
+                                text: "Bug fix"
                                 target: '_blank'
                             }
                         }

@@ -404,7 +404,7 @@ Theme {
             Li {
                 A {
                     href: "http://workshop.qt-users.jp/"
-                    text: 'Qt 勉強会'
+                    text: 'Qt Meetups in Japan'
                     target: '_blank'
                 }
 
@@ -412,21 +412,21 @@ Theme {
                     Li {
                         A {
                             href: "http://www.zusaar.com/event/504003"
-                            text: '02-16 関東Qt勉強会 #12 #qtjp'
+                            text: '02-16 Qt Tokyo #12'
                             target: '_blank'
                         }
                     }
                     Li {
                         A {
                             href: "http://www.zusaar.com/event/491003"
-                            text: '01-26 名古屋Qt勉強会#7 1/26'
+                            text: '01-26 Qt Nagoya #7'
                             target: '_blank'
                         }
                     }
                     Li {
                         A {
                             href: "http://www.zusaar.com/event/482005"
-                            text: '01-19 関東Qt勉強会 #11'
+                            text: '01-19 Qt Tokyo #11'
                             target: '_blank'
                         }
                     }
