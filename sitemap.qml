@@ -24,9 +24,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import Silk.Database 1.0
+import QtQml 2.0
 import Silk.HTML 5.0
 import Silk.Utils 1.0
+import me.qtquick.Database 0.1
 
 Text {
     id: root
@@ -47,8 +48,8 @@ Text {
     ArticleModel {
         id: articleModel
         database: db
-        select: true
-        condition: 'published <> ""'
+        condition: 'published <> "" AND published < ?'
+        params: [new Date()]
         onCountChanged: {
             var urls = []
             for (var i = 0; i < count; i++) {
@@ -56,5 +57,6 @@ Text {
             }
             root.text = urls.join('\n')
         }
+        Component.onCompleted: articleModel.select = true
     }
 }

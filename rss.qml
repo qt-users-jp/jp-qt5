@@ -25,7 +25,7 @@
  */
 
 import QtQml 2.0
-import Silk.Database 1.0
+import me.qtquick.Database 0.1
 import Silk.RSS 2.0
 import Silk.Utils 1.0
 
@@ -48,10 +48,10 @@ Rss {
     ArticleModel {
         id: articleModel
         database: db
-        select: true
         condition: 'published <> "" AND published < ?'
         params: [new Date()]
         limit: 20
+        Component.onCompleted: articleModel.select = true
     }
 
     QtObject {

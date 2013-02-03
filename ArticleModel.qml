@@ -25,7 +25,7 @@
  */
 
 import QtQml 2.0
-import Silk.Database 1.0
+import me.qtquick.Database 0.1
 
 AbstractSlugModel {
     id: root

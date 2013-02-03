@@ -27,7 +27,7 @@
 import QtQml 2.0
 import Silk.HTML 5.0
 import Silk.Cache 1.0
-import Silk.Database 1.0
+import me.qtquick.Database 0.1
 import Silk.Utils 1.0
 import './components/'
 
@@ -314,7 +314,7 @@ Theme {
         database: db
         limit: 10
     }
-    SelectSqlModel {
+    SqlModel {
         id: articleCount
         database: db
         select: false
