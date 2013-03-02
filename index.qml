@@ -564,12 +564,38 @@ Theme {
                     }
                     P {
                         _class: 'continue'
+                        enabled: !viewer.detail && model.body2.length > 0
                         A {
-                            enabled: !viewer.detail && model.body2.length > 0
                             href: '%1%2.html'.arg(http.path).arg(model.slug)
                             text: qsTr('Continue reading...')
                         }
                     }
+                }
+
+                Footer {
+                    enabled: viewer.detail
+                    Div {
+                        _class: 'addthis_toolbox addthis_default_style addthis_32x32_style'
+                        Repeater {
+                            model: 4
+                            Component {
+                                A { _class: 'addthis_button_preferred_%1'.arg(model.modelData) }
+                            }
+                        }
+                        A { _class: 'addthis_button_compact' }
+                        A { _class: 'addthis_counter addthis_bubble_style' }
+                    }
+
+                    Div { _class: 'addthis_trendingcontent' }
+                    Script { text: 'addthis.box("#addthis_trendingcontent", {
+                                    feed_title : "",
+                                    feed_type : "trending",
+                                    feed_period : "month",
+                                    num_links : 5,
+                                    height : "auto",
+                                    width : "auto"})'
+                    }
+                    Script { src: '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5131e09279c7d927' }
                 }
 
                 Footer {
