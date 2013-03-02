@@ -439,8 +439,8 @@ Theme {
                     }
                 }
             }
-        }
-
+        },
+        Div { _class: 'addthis_trendingcontent' }
     ]
 
     function escapeHTML(str) {
@@ -585,17 +585,6 @@ Theme {
                         A { _class: 'addthis_button_compact' }
                         A { _class: 'addthis_counter addthis_bubble_style' }
                     }
-
-                    Div { _class: 'addthis_trendingcontent' }
-                    Script { text: 'addthis.box("#addthis_trendingcontent", {
-                                    feed_title : "",
-                                    feed_type : "trending",
-                                    feed_period : "month",
-                                    num_links : 5,
-                                    height : "auto",
-                                    width : "auto"})'
-                    }
-                    Script { src: '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5131e09279c7d927' }
                 }
 
                 Footer {
@@ -635,5 +624,14 @@ Theme {
             enabled: input.page > articleCount.pages - 1 && !viewer.detail
             text: qsTr('Next')
         }
+    }
+    Script { src: '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5131e09279c7d927' }
+    Script { text: 'addthis.box("#addthis_trendingcontent", {
+                    feed_title : "",
+                    feed_type : "trending",
+                    feed_period : "month",
+                    num_links : 5,
+                    height : "auto",
+                    width : "auto"})'
     }
 }
