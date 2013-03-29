@@ -411,6 +411,20 @@ Theme {
                 Ul {
                     Li {
                         A {
+                            href: "http://www.zusaar.com/event/607003"
+                            text: '04-27 Qt Nagoya #8'
+                            target: '_blank'
+                        }
+                    }
+                    Li {
+                        A {
+                            href: "http://www.zusaar.com/event/611004"
+                            text: '04-20 Qt Tokyo #14'
+                            target: '_blank'
+                        }
+                    }
+                    Li {
+                        A {
                             href: "http://www.zusaar.com/event/531003"
                             text: '03-23 Qt Tokyo #13'
                             target: '_blank'
