@@ -598,6 +598,9 @@ Theme {
 
                 Footer {
                     enabled: viewer.detail
+                    H2 {
+                        text: "Trend"
+                    }
                     Div { _id: 'addthis_trendingcontent' }
                 }
 
