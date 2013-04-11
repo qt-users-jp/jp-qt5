@@ -453,8 +453,18 @@ Theme {
                     }
                 }
             }
-        },
-        Div { _class: 'addthis_trendingcontent' }
+            Li {
+                _class: 'addthis_toolbox addthis_default_style addthis_32x32_style'
+                Repeater {
+                    model: 4
+                    Component {
+                        A { _class: 'addthis_button_preferred_%1'.arg(model.modelData) }
+                    }
+                }
+                A { _class: 'addthis_button_compact' }
+                A { _class: 'addthis_counter addthis_bubble_style' }
+            }
+        }
     ]
 
     function escapeHTML(str) {
@@ -588,17 +598,7 @@ Theme {
 
                 Footer {
                     enabled: viewer.detail
-                    Div {
-                        _class: 'addthis_toolbox addthis_default_style addthis_32x32_style'
-                        Repeater {
-                            model: 4
-                            Component {
-                                A { _class: 'addthis_button_preferred_%1'.arg(model.modelData) }
-                            }
-                        }
-                        A { _class: 'addthis_button_compact' }
-                        A { _class: 'addthis_counter addthis_bubble_style' }
-                    }
+                    Div { _id: 'addthis_trendingcontent' }
                 }
 
                 Footer {
