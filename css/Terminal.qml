@@ -40,15 +40,12 @@ Rule {
     property string _webkit_box_shadow: '0 5px 10px #aaa'
     property string _moz_box_shadow: _webkit_box_shadow
     property string box_shadow: _webkit_box_shadow
-    Rule {
-        selector: 'kbd'
-        font_family: 'monospace'
-        color: css.whiteColor
-        property string line_height: '1.0'
+    font_family: 'monospace'
+    color: css.whiteColor
+    property string line_height: '1.0'
 
-        Rule {
-            selector: 'a,a:visited'
-            color: 'white'
-        }
+    Rule {
+        selector: 'a,a:visited'
+        color: 'white'
     }
 }
