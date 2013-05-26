@@ -411,6 +411,13 @@ Theme {
                 Ul {
                     Li {
                         A {
+                            href: "http://www.zusaar.com/event/751005"
+                            text: '06-15 Qt Tokyo #16'
+                            target: '_blank'
+                        }
+                    }
+                    Li {
+                        A {
                             href: "http://www.zusaar.com/event/678003"
                             text: '05-18 Qt Tokyo #15'
                             target: '_blank'
