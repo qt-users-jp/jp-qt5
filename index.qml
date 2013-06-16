@@ -335,7 +335,7 @@ Theme {
                 A {
                     href: 'http://twitter.com/%1'.arg(config.blog.author)
                     target: '_blank'
-                    Img { width: '22'; height: '22'; src: 'http://api.twitter.com/1/users/profile_image?screen_name=%1'.arg(config.blog.author) }
+                    Img { width: '22'; height: '22'; src: 'http://www.gravatar.com/avatar/bb2ff1535f4bcf9d8e6bd546f56cb1df.png' }
                     Text { text: config.blog.author }
                 }
                 Ul {
@@ -409,6 +409,13 @@ Theme {
                 }
 
                 Ul {
+                    Li {
+                        A {
+                            href: "http://www.zusaar.com/event/826006"
+                            text: '07-13 Qt Nagoya #9'
+                            target: '_blank'
+                        }
+                    }
                     Li {
                         A {
                             href: "http://www.zusaar.com/event/751005"
