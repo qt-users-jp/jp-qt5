@@ -409,67 +409,19 @@ Theme {
                 }
 
                 Ul {
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/826006"
-                            text: '07-13 Qt Nagoya #9'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/751005"
-                            text: '06-15 Qt Tokyo #16'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/678003"
-                            text: '05-18 Qt Tokyo #15'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/607003"
-                            text: '04-27 Qt Nagoya #8'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/611004"
-                            text: '04-20 Qt Tokyo #14'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/531003"
-                            text: '03-23 Qt Tokyo #13'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/504003"
-                            text: '02-16 Qt Tokyo #12'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/491003"
-                            text: '01-26 Qt Nagoya #7'
-                            target: '_blank'
-                        }
-                    }
-                    Li {
-                        A {
-                            href: "http://www.zusaar.com/event/482005"
-                            text: '01-19 Qt Tokyo #11'
-                            target: '_blank'
+                    Repeater {
+                        model: QtMeetupModel {}
+                        Component {
+                            Li {
+                                A {
+                                    href: model.link
+                                    target: '_blank'
+                                    Strong {
+                                        tagName: model.date > new Date ? 'strong' : ''
+                                        text: '%1 %2'.arg(Qt.formatDate(model.date, 'yyyy-MM-dd')).arg(model.title)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
