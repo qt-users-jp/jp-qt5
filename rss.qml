@@ -107,8 +107,8 @@ Rss {
         Title { text: config.blog.title }
         Link { text: 'http://%1%2'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port) }
         Language { text: 'ja' }
-        PubDate { text: (new Date()).toUTCString() }
-        LastBuildDate { text:articleModel.count > 0 ? articleModel.get(0).published.toUTCString() : '' }
+        PubDate { text: Silk.formatDateTime(new Date(), 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
+        LastBuildDate { text:articleModel.count > 0 ? Silk.formatDateTime(articleModel.get(0).published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') : '' }
 
         Repeater {
             model: articleModel
@@ -117,7 +117,7 @@ Rss {
                     Title { text: root.escapeHTML(model.title) }
                     Link { text: 'http://%1%2/%3.html'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port).arg(model.slug) }
                     Description { text: root.escapeHTML(viewer.show(model.body, model.id)) }
-                    PubDate { text: model.published.toUTCString() }
+                    PubDate { text: Silk.formatDateTime(model.published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
                     Guid { text: 'http://%1%2/?no=%3'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port).arg(model.id); isPermaLink: 'false' }
                 }
             }
