@@ -403,27 +403,9 @@ Theme {
         Ul {
             Li {
                 A {
-                    href: "http://workshop.qt-users.jp/"
+                    href: "http://qt-users.jp/event/"
                     text: 'Qt Meetups in Japan'
                     target: '_blank'
-                }
-
-                Ul {
-                    Repeater {
-                        model: QtMeetupModel {}
-                        Component {
-                            Li {
-                                A {
-                                    href: model.link
-                                    target: '_blank'
-                                    Strong {
-                                        tagName: model.date > new Date ? 'strong' : ''
-                                        text: '%1 %2'.arg(Qt.formatDate(model.date, 'yyyy-MM-dd')).arg(model.title)
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
             Li {

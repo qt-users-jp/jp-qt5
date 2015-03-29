@@ -75,21 +75,21 @@ Html {
                     Ul {
                         Li {
                             A {
-                                href: "http://qt-project.org/downloads"
+                                href: "www.qt.io/download-open-source/"
                                 text: "Download"
                                 target: '_blank'
                             }
                         }
                         Li {
                             A {
-                                href: "https://bugreports.qt-project.org/"
+                                href: "https://bugreports.qt.io/"
                                 text: "Bug report"
                                 target: '_blank'
                             }
                         }
                         Li {
                             A {
-                                href: "http://qt-project.org/wiki/Gerrit-Introduction"
+                                href: "http://wiki.qt.io/Qt_Contribution_Guidelines"
                                 text: "Bug fix"
                                 target: '_blank'
                             }
