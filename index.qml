@@ -260,7 +260,7 @@ Theme {
 
         Component.onCompleted: {
             var plugins = {}
-            var dir = config.contents['*'] + 'plugins/'
+            var dir = config.contents['/'] + '/plugins/'
             var files = Silk.readDir(dir)
             for (var i = 0; i < files.length; i++) {
                 var component = Qt.createComponent(dir + files[i])
@@ -295,7 +295,7 @@ Theme {
                     return ret
                 })
             }
-            html = html.replace(/\v/g, 'plugin')
+            html = html.replace(/\v/g, 'plugin').replace('<Object>', '&lt;Object&gt;')
             return html
         }
     }
@@ -322,7 +322,9 @@ Theme {
         params: account.loggedIn ? [] : [new Date()]
 
         property int article_count: 0
-        onCountChanged: if (count > 0) article_count = get(0).article_count
+        onCountChanged: {
+            if (count !== 0) article_count = get(0).article_count
+        }
         property int pages: Math.floor(articleCount.article_count / 10 + (articleCount.article_count % 10 > 0 ? 1 : 0))
     }
 
@@ -401,13 +403,6 @@ Theme {
         },
 
         Ul {
-            Li {
-                A {
-                    href: "http://qt-users.jp/event/"
-                    text: 'Qt Meetups in Japan'
-                    target: '_blank'
-                }
-            }
             Li {
                 _class: 'addthis_toolbox addthis_default_style addthis_32x32_style'
                 Repeater {

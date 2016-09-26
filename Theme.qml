@@ -37,8 +37,6 @@ Html {
     property bool __tracking: true
     property string __mode
 
-    DocType { enabled: http.status === 200 }
-
     Head {
         id: head
         enabled: http.status === 200

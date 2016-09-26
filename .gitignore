@@ -1,3 +1,4 @@
-database
-upload
 *.qmlproject.*
+*.qmlc
+*.jsc
+data
