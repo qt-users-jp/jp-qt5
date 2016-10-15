@@ -3,8 +3,7 @@ TARGET = qt5.jp
 QT = webservice
 CONFIG += install_ok
 SOURCES += main.cpp
-RESOURCES += main.qrc \
-    main.qrc
+RESOURCES += main.qrc
 
 OTHER_FILES += \
     root/components/Button.qml \
