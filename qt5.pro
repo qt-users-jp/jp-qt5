@@ -41,3 +41,6 @@ OTHER_FILES += \
     root/Account.qml \
     root/AbstractSlugModel.qml \
     root/index.qml
+
+target.path = /usr/bin
+INSTALLS += target
