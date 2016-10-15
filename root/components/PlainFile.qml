@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -24,21 +24,36 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import Silk.OAuth 1.0
-import Silk.Utils 1.0
+import QtQml 2.0
+import QtWebService.HTML 5.0
+import QtWebService.Cache 1.0
 
-OAuth {
+Pre {
     id: root
+    property string __class
+    _class: "file %1".arg(__class)
+    property url __file
 
-    SilkConfig {
-        id: config
-        property variant oauth: {'consumerKey': '', 'consumerSecret': ''}
+    Cache { id: cache }
+
+    Component.onCompleted: {
+        if (__file.toString().length > 0) {
+            var value = cache.fetch(__file);
+            if (typeof value !== 'undefined') {
+                root.text = value;
+            } else {
+                var request = new XMLHttpRequest()
+                request.onreadystatechange = function() {
+                    switch (request.readyState) {
+                    case 4: // Done
+                        cache.add(__file, request.responseText);
+                        root.text = request.responseText;
+                        break;
+                    }
+                }
+                request.open("GET", __file, true);
+                request.send();
+            }
+        }
     }
-
-    requestTokenUrl: 'https://api.twitter.com/oauth/request_token'
-    authorizeUrl: 'https://api.twitter.com/oauth/authorize'
-    accessTokenUrl: 'https://api.twitter.com/oauth/access_token'
-
-    consumerKey: config.oauth.consumerKey
-    consumerSecret: config.oauth.consumerSecret
 }

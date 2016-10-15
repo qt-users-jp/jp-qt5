@@ -1,7 +1,7 @@
 import QtQml 2.0
-import Silk.HTML 5.0
-import Silk.Cache 1.0
-import Silk.Utils 1.0
+import QtWebService.HTML 5.0
+import QtWebService.Cache 1.0
+import QtWebService.Utils 1.0
 import './components/'
 
 Twitter {
@@ -62,7 +62,7 @@ Twitter {
     function storeSession() {
         if (root.authorized) {
             if (root.screen_name === root.author) {
-                var session_id = Silk.uuid()
+                var session_id = QtWebService.uuid()
                 var session_data = {}
                 session_data.token = root.token
                 session_data.tokenSecret = root.tokenSecret

@@ -1,20 +1,19 @@
-import Silk.Config 0.1
+import QtWebService.Config 0.1
 
 Config {
-    listen: Listen {
-        address: '*'
-        port: 6109
-    }
+    listen.address: '*'
+    listen.port: 8080
+    server.name: 'qt5.jp'
 
-    property string root: '/jp/qt5'
+    property string data: '/jp/qt5/data'
 
     contents: {
-        '/': root,
-        '/uploads': root + '/data/uploads'
+        '/': './root/',
+        '/upload': data
     }
 
     cache: {
-        'qml': false
+        'qml': true
     }
 
     deflate: {
@@ -30,5 +29,5 @@ Config {
 
     property var oauth: { "consumerKey": "", "consumerSecret": "" }
 
-    property var blog: { "author": "", "database": root + "/data/blog.sqlite", "title": "Qt { version: 5 }", "upload": root + "/data/uploads/" }
+    property var blog: { "author": "", "database": data + "/blog.sqlite", "title": "", "upload": data + "/upload/" }
 }

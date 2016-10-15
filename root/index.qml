@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -25,10 +25,10 @@
  */
 
 import QtQml 2.0
-import Silk.HTML 5.0
-import Silk.Cache 1.0
+import QtWebService.HTML 5.0
+import QtWebService.Cache 1.0
 import me.qtquick.Database 0.1
-import Silk.Utils 1.0
+import QtWebService.Utils 1.0
 import './components/'
 
 Theme {
@@ -37,7 +37,7 @@ Theme {
     __tracking: !account.loggedIn
     __mode: input.action
 
-    SilkConfig {
+    WebServiceConfig {
         id: config
         property variant blog: {author: 'task_jp'; database: ':memory:'; title: 'Qt { version: 5 }'}
         property variant contents: {}
@@ -261,9 +261,9 @@ Theme {
         Component.onCompleted: {
             var plugins = {}
             var dir = config.contents['/'] + '/plugins/'
-            var files = Silk.readDir(dir)
+            var files = QtWebService.readDir(dir)
             for (var i = 0; i < files.length; i++) {
-                var component = Qt.createComponent(dir + files[i])
+                var component = Qt.createComponent('qrc' + dir + files[i])
                 switch (component.status) {
                 case Component.Ready: {
                     var plugin = component.createObject(viewer, {config: config})
@@ -473,7 +473,7 @@ Theme {
                 Text { text: escapeAll(input.body2) }
             }
             Repeater {
-                model: Silk.readDir('%1%2'.arg(config.blog.upload).arg(input.no))
+                model: QtWebService.readDir('%1%2'.arg(config.blog.upload).arg(input.no))
                 Component {
                     Input { type: 'checkbox'; _id: value; value: model.modelData }
                 }
@@ -547,14 +547,6 @@ Theme {
                 }
 
                 Footer {
-                    enabled: viewer.detail
-                    H2 {
-                        text: "Trend"
-                    }
-                    Div { _id: 'addthis_trendingcontent' }
-                }
-
-                Footer {
                     enabled: editor.confirmRemove
                     H2 { text: qsTr('Are you sure to delete?') }
                     Button {
@@ -591,14 +583,5 @@ Theme {
             enabled: input.page > articleCount.pages - 1 && !viewer.detail
             text: qsTr('Next')
         }
-    }
-    Script { src: '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5131e09279c7d927' }
-    Script { text: 'addthis.box("#addthis_trendingcontent", {
-                    feed_title : "",
-                    feed_type : "trending",
-                    feed_period : "month",
-                    num_links : 5,
-                    height : "auto",
-                    width : "auto"})'
     }
 }

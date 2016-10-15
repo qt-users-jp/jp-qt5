@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -24,11 +24,22 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import QtQml 2.0
-import me.qtquick.Database 0.1
+import './api/'
+import QtWebService.Cache 1.0
 
-AbstractSlugModel {
+Plugin {
     id: root
-    tableName: 'Tag'
-    property string name
+    name: 'include'
+
+    property Cache cache: Cache { id: cache }
+
+    function exec(argument, str, preview) {
+        var file = '%1%2'.arg(config.blog.upload).arg(argument)
+        var ret = cache.fetch(file);
+        if (typeof ret === 'undefined') {
+            ret = QtWebService.readFile('%1%2'.arg(config.blog.upload).arg(argument))
+            cache.add(file, ret)
+        }
+        return ret
+    }
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -24,20 +24,41 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import QtQml 2.0
-import me.qtquick.Database 0.1
+import './api/'
+import './highlight/qml.js' as QmlParser
+import './highlight/json.js' as JsonParser
+import './highlight/pro.js' as ProParser
+import './highlight/cpp.js' as CppParser
 
-AbstractSlugModel {
+Plugin {
     id: root
-    tableName: 'Article'
-    property int user_id
-    property string title
-    property string eyecatch
-    property string head
-    property string body
-    property string body2
-    property date published
-    property date lastModified
-    property int status: 0
-    order: 'published DESC, id DESC'
+    name: 'highlight'
+
+    function exec(argument, str, preview) {
+        if (preview) return str
+        var parser
+        var ret = str
+        switch (argument) {
+        case 'qml':
+            parser = new QmlParser.QmlParser()
+            ret = parser.to_html(parser.parse(str))
+            break
+        case 'cpp':
+            parser = new CppParser.CppParser()
+            ret = parser.to_html(parser.parse(str))
+            break
+        case 'json':
+            parser = new JsonParser.JsonParser()
+            ret = parser.to_html(parser.parse(str))
+            break
+        case 'pro':
+            parser = new ProParser.ProParser()
+            ret = parser.to_html(parser.parse(str))
+            break
+        default:
+            break
+        }
+
+        return ret
+    }
 }

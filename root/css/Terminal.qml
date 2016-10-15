@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -24,86 +24,28 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import Silk.CSS 3.0
+import QtWebService.CSS 3.0
 
 Rule {
-    selector: '.file'
-    font_family: 'monospace'
-    property string line_height: '1.2'
-    border: '4px solid %1'.arg(css.darkColor)
-    background: 'white'
+    selector: '.terminal'
+
+    border_top: '25px solid %1'.arg(css.lightColor)
+    border_left: '4px solid %1'.arg(css.lightColor)
+    border_bottom: border_left
+    border_right: border_left
+    background: css.blackColor
     property string padding: '10px'
+    property string overflow: 'auto'
+
     property string _webkit_box_shadow: '0 5px 10px #aaa'
     property string _moz_box_shadow: _webkit_box_shadow
     property string box_shadow: _webkit_box_shadow
-    property string overflow: 'auto'
+    font_family: 'monospace'
+    color: css.whiteColor
+    property string line_height: '1.0'
 
     Rule {
-        selector: ' .number'
-        color: '#333399'
-    }
-
-    Rule {
-        selector: ' .macro'
-        color: '#333399'
-    }
-
-    Rule {
-        selector: ' .preprocessor'
-        color: '#333399'
-    }
-
-    Rule {
-        selector: ' .literal'
-        color: '#339933'
-    }
-    Rule {
-        selector: ' .key'
-        color: '#993333'
-    }
-
-    Rule {
-        selector: ' .keyword'
-        color: '#999933'
-    }
-
-    Rule {
-        selector: ' .function'
-        color: '#999933'
-    }
-
-    Rule {
-        selector: ' .variable'
-        color: '#993399'
-    }
-
-    Rule {
-        selector: ' .element'
-        color: '#993399'
-    }
-
-    Rule {
-        selector: ' .class'
-        color: '#993399'
-    }
-
-    Rule {
-        selector: ' .namespace'
-        color: '#993399'
-    }
-
-    Rule {
-        selector: ' .property'
-        color: '#993333'
-    }
-
-    Rule {
-        selector: ' .comment'
-        color: '#339933'
-    }
-
-    Rule {
-        selector: ' .blah3'
-        color: '#339933'
+        selector: 'a,a:visited'
+        color: 'white'
     }
 }

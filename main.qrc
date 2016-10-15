@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/">
+        <file>config.qml</file>
+        <file>root/components/Button.qml</file>
+        <file>root/components/ButtonGroup.qml</file>
+        <file>root/components/PlainFile.qml</file>
+        <file>root/components/Terminal.qml</file>
+        <file>root/css/Button.qml</file>
+        <file>root/css/index.qml</file>
+        <file>root/css/PlainFile.qml</file>
+        <file>root/css/Terminal.qml</file>
+        <file>root/icons/document-close.png</file>
+        <file>root/icons/document-new.png</file>
+        <file>root/icons/document-properties.png</file>
+        <file>root/icons/page.png</file>
+        <file>root/icons/rss.png</file>
+        <file>root/icons/system-log-out.png</file>
+        <file>root/plugins/api/Plugin.qml</file>
+        <file>root/plugins/highlight/cpp.js</file>
+        <file>root/plugins/highlight/json.js</file>
+        <file>root/plugins/highlight/pro.js</file>
+        <file>root/plugins/highlight/qml.js</file>
+        <file>root/plugins/highlight.qml</file>
+        <file>root/plugins/include.qml</file>
+        <file>root/AbstractSlugModel.qml</file>
+        <file>root/Account.qml</file>
+        <file>root/ArticleModel.qml</file>
+        <file>root/edit.js</file>
+        <file>root/favicon.ico</file>
+        <file>root/GoogleAnalytics.qml</file>
+        <file>root/index.qml</file>
+        <file>root/rss.qml</file>
+        <file>root/sitemap.qml</file>
+        <file>root/TagModel.qml</file>
+        <file>root/Theme.qml</file>
+        <file>root/Twitter.qml</file>
+        <file>root/UserInput.qml</file>
+        <file>root/UserModel.qml</file>
+    </qresource>
+</RCC>

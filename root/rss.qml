@@ -1,4 +1,4 @@
-/* Copyright (c) 2012 Silk Project.
+/* Copyright (c) 2012 QtWebService Project.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -8,7 +8,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Silk nor the
+ *     * Neither the name of the QtWebService nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -26,13 +26,13 @@
 
 import QtQml 2.0
 import me.qtquick.Database 0.1
-import Silk.RSS 2.0
-import Silk.Utils 1.0
+import QtWebService.RSS 2.0
+import QtWebService.Utils 1.0
 
 Rss {
     id: root
 
-    SilkConfig {
+    WebServiceConfig {
         id: config
         property variant blog: {author: 'task_jp'; database: ':memory:'; title: 'Qt { version: 5 }'}
         property variant contents: {}
@@ -61,7 +61,7 @@ Rss {
         Component.onCompleted: {
             var plugins = {}
             var dir = config.contents['*'] + 'plugins/'
-            var files = Silk.readDir(dir)
+            var files = QtWebService.readDir(dir)
             for (var i = 0; i < files.length; i++) {
                 var component = Qt.createComponent(dir + files[i])
                 switch (component.status) {
@@ -107,8 +107,8 @@ Rss {
         Title { text: config.blog.title }
         Link { text: 'http://%1%2'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port) }
         Language { text: 'ja' }
-        PubDate { text: Silk.formatDateTime(new Date(), 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
-        LastBuildDate { text:articleModel.count > 0 ? Silk.formatDateTime(articleModel.get(0).published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') : '' }
+        PubDate { text: QtWebService.formatDateTime(new Date(), 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
+        LastBuildDate { text:articleModel.count > 0 ? QtWebService.formatDateTime(articleModel.get(0).published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') : '' }
 
         Repeater {
             model: articleModel
@@ -117,7 +117,7 @@ Rss {
                     Title { text: root.escapeHTML(model.title) }
                     Link { text: 'http://%1%2/%3.html'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port).arg(model.slug) }
                     Description { text: root.escapeHTML(viewer.show(model.body, model.id)) }
-                    PubDate { text: Silk.formatDateTime(model.published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
+                    PubDate { text: QtWebService.formatDateTime(model.published, 'ddd, d MMM yyyy hh:mm:ss +0900', 'C') }
                     Guid { text: 'http://%1%2/?no=%3'.arg(http.host).arg(http.port === 80 ? '' : ':' + http.port).arg(model.id); isPermaLink: 'false' }
                 }
             }
